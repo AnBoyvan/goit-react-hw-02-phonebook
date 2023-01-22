@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { Formik, Field, Form } from 'formik';
+import css from './Filter.module.css';
 
 export const Filter = ({ value, onChange }) => {
   const handleChange = e => {
@@ -6,10 +8,11 @@ export const Filter = ({ value, onChange }) => {
   };
   return (
     <>
-      <p>Find contacts by name</p>
+      <p className={css.title}>Find contacts by name</p>
       <Formik>
         <Form>
           <Field
+            className={css.input}
             type="text"
             name="filter"
             value={value}
@@ -19,4 +22,9 @@ export const Filter = ({ value, onChange }) => {
       </Formik>
     </>
   );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
