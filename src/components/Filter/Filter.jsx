@@ -4,8 +4,9 @@ import css from './Filter.module.css';
 
 export const Filter = ({ value, onChange }) => {
   const handleChange = e => {
-    onChange(e);
+    onChange(e.currentTarget.value);
   };
+
   return (
     <>
       <p className={css.title}>Find contacts by name</p>
@@ -25,6 +26,6 @@ export const Filter = ({ value, onChange }) => {
 };
 
 Filter.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
